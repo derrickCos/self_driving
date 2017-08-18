@@ -11,12 +11,13 @@ Then robot will undergo motion and it carries the LESS probability from its prev
 The probability from the previous location will be added to the probability sensed at the new location after motion = CONVOLUTION
 
 Localization alternates between cycle of SENSE and MOVE. 
-MOVE will LOSE information becauuse robot motion is always uncertain
-SENSE wll GAIN information because robot checks its surroundings.
+MOVE will LOSE information becauuse robot motion is always uncertain.
+SENSE will GAIN information because robot checks its surroundings.
 CONVOLUTION from new measurement / SENSE then happens between the probability before and after move to create a better POSTERIOR
-	POSTERIOR will have  REDUCED uncertainty at every locations which means: 
-		1. true postiive location probablity to be higher than the previous
-		2. true negative location lower than previous (negative refers to where doors are located but robot is not there)
+POSTERIOR will have  REDUCED uncertainty at every locations which means: 
+		
+	1. true postiive location probablity to be higher than the previous
+	2. true negative location lower than previous (negative refers to where doors are located but robot is not there)
 
 
 # 1-D Kalman Filter:
