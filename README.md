@@ -1,9 +1,13 @@
 # Discrete Localization :
 
 Illustrated with discrete spots of 5 doors [] [] [] [] []
+
 First you have inital BELIEF (probability of object in all locations are in MAXIMUM state of confusion = UNIFORM distribution): [0.2][0.2][0.2][0.2][0.2]
+
 This is then followed by measurement by SENSING the location surrounding it and gives us the information about its location (this information is not exact and has uncertainty/probability)
+
 Then robot will undergo motion and it carries the LESS probability from its previous location
+
 The probability from the previous location will be added to the probability sensed at the new location after motion = CONVOLUTION
 
 Localization alternates between cycle of SENSE and MOVE. 
