@@ -61,3 +61,34 @@ Predict: when an robot is told to move by a certain steps, the movement always c
 
 - Orientation does matter because depending on the orientation  of initial set of particles, the actual distance of particles to landmark after movement can differ
 
+# Search Function:
+
+Initialize robot paths as discrete nodes:
+
+grid = [[0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 1, 1, 0]]
+	
+With '1' meaning path is blocked while '0' means path is free. 
+
+Search function will expand each individual nodes to the surrounding nodes. With each path taken 'g' value increases. Overlaying with stochastic grid value 'f' you can get [y = g + f]
+
+stochastic = [[1, 2, 3, 4],
+       	      [2, 3, 4, 5],
+              [3, 4, 5, 6],
+              [4, 5, 6, 7]]
+
+Path(s) that lead to goal with smallest 'y' value is the desired path
+
+# PID Control
+
+Due to nature of steering angle, robot tends to oscillate along a horizontal line. Imagine a horizontal x axis, as the robot tends to get closer to the axis, the robot will overshoot. Using PID control to adjust steering angle using the formula:
+
+steer = - tau_p * CTE - tau_d * (cte_(t) - cte_(t-1)) * - tau_i * (sum of CTE)
+
+*Cte refers to crosstrack error meaning the distance from axis to the robot
+
+the first term will cause robot to move towards the axis, but will cause oscillation. the middle term (derivative of cte) will result in smooth oscillation however, error bias still remain due to the CTE. the last term will eliminate error bias and place the robot close to the x axis
+
+
